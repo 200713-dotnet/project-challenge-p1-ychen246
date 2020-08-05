@@ -1,5 +1,6 @@
 # dotnet
 bin/
 obj/
+.vscode/
 
 appsettings*.json
