@@ -19,6 +19,7 @@ namespace PizzaBox.Domain.Models
 				}
 				return Crust.Price + Size.Price + ToppingPriceSum;
 			}
+			set{}
 		}
 	}
 }

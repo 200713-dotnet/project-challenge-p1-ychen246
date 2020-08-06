@@ -10,7 +10,8 @@ namespace PizzaBox.Domain.Models
 		//public StoreModel store { get; set;}
 		//Might need.
 
-		public decimal OrderPrice {
+		public decimal OrderPrice 
+		{
 			get 
 			{
 				decimal TotalOrderSum = 0;
@@ -20,6 +21,7 @@ namespace PizzaBox.Domain.Models
 				}
 				return TotalOrderSum;
 			}
+			set{}
 		}
 	}
 }
