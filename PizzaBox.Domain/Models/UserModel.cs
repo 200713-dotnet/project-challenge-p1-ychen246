@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PizzaStore.Domain.Models
+namespace PizzaBox.Domain.Models
 {
 	public class UserModel : AModel
 	{

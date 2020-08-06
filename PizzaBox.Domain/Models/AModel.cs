@@ -1,4 +1,4 @@
-namespace PizzaStore.Domain.Models
+namespace PizzaBox.Domain.Models
 {
   public abstract class AModel
   {
