@@ -1,0 +1,18 @@
+@model PizzaBox.Client.Models.OrderViewModel
+<section>
+    <h2>Pizza List</h2>
+    <ul>
+        @foreach (var pizza in @Model.Pizzas)
+        {
+            <li>
+                <label>@pizza.Crust.Name</label>
+                <label>@pizza.Size.Name</label>
+                @foreach (var topping in @pizza.Toppings)
+                {
+                    <label>@topping.Name</label>
+                }
+                <label>@pizza.PizzaPrice</label>
+            </li>
+        }
+    </ul>
+</section>

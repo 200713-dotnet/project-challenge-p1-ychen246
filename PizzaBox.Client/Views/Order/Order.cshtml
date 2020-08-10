@@ -1,6 +1,6 @@
 @model PizzaBox.Client.Models.PizzaViewModel
 
-<form asp-action="placeorder" method="post">
+<form asp-controller="user" asp-action="placeorder" method="post">
   <select asp-for="@Model.Crust">
     @foreach (var crust in @Model.Crusts)
     {
@@ -15,9 +15,9 @@
   </select>
   @foreach (var topping in @Model.Toppings)
   {
-    <input type="checkbox" name="selectedtoppings" id="selectedtoppings">
-    <label>@topping.Name</label>
+    <input type="checkbox" name="selectedtoppings" id="selectedtoppings" value="@topping.Name">
+    <label for="selectedtoppings">@topping.Name</label>
   }
 
-  <section><button type="submit">place order</button></section>
+  <section><button type="submit">Place Order</button></section>
 </form>

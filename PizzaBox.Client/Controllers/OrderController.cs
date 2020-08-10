@@ -18,24 +18,12 @@ namespace PizzaBox.Client.Controllers
       _db = dbContext;
     }
     
-    public IActionResult Start()
+    public IActionResult Start(OrderViewModel orderViewModel)
     {
       ViewBag.Crust = _db.Crusts.ToList();
       ViewBag.Size = _db.Sizes.ToList();
       ViewBag.Topping = _db.Toppings.ToList();
       return View("Order", new PizzaViewModel(ViewBag.Crust, ViewBag.Size, ViewBag.Topping));
-    }
-
-    public IActionResult Post(PizzaViewModel pizzaViewModel) 
-    {
-      if (ModelState.IsValid) 
-      {
-        var p = new PizzaFactory(); 
-
-        return Redirect("/user/index"); 
-      }
-
-      return View("Order", pizzaViewModel);
     }
   }
 }

@@ -15,5 +15,15 @@ namespace PizzaBox.Domain.Factories
 
       return p;
     }
+
+    public AModel Update(PizzaModel pizza, CrustModel crust, SizeModel size, List<ToppingModel> toppings)
+    {
+
+      pizza.Crust = crust;
+      pizza.Size = size;
+      pizza.Toppings = toppings;
+
+      return pizza;
+    }
   }
 }
