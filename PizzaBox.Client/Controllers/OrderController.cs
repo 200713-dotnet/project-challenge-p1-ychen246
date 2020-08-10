@@ -20,7 +20,10 @@ namespace PizzaBox.Client.Controllers
     
     public IActionResult Start()
     {
-      return View("Order", new PizzaViewModel());
+      ViewBag.Crust = _db.Crusts.ToList();
+      ViewBag.Size = _db.Sizes.ToList();
+      ViewBag.Topping = _db.Toppings.ToList();
+      return View("Order", new PizzaViewModel(ViewBag.Crust, ViewBag.Size, ViewBag.Topping));
     }
 
     public IActionResult Post(PizzaViewModel pizzaViewModel) 

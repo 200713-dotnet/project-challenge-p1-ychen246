@@ -27,6 +27,7 @@ namespace PizzaBox.Storing
       builder.Entity<OrderModel>().Property(e => e.OrderPrice).HasColumnType("decimal(18, 2)");
 
       builder.Entity<UserModel>().Property(e => e.Id);
+      
       builder.Entity<StoreModel>().Property(e => e.Id);
     }
   }

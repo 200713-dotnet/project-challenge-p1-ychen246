@@ -29,7 +29,15 @@ namespace PizzaBox.Client.Models
       Sizes = new List<SizeModel>() { new SizeModel() { Name = "Medium" }};
       Toppings = new List<ToppingModel>() { new ToppingModel(){ Name = "Pepperoni" }};
 
-      SelectedToppings2 = new List<CheckBoxTopping>(){ new CheckBoxTopping(){ Name = "Pepperoni", Text = "NotChecked", IsSelected = false }};
+      //SelectedToppings2 = new List<CheckBoxTopping>(){ new CheckBoxTopping(){ Name = "Pepperoni", Text = "NotChecked", IsSelected = false }};
+    }
+    public PizzaViewModel(List<CrustModel> crustModels, List<SizeModel> sizeModels, List<ToppingModel> toppingModels)
+    {
+      Crusts = crustModels;
+      Sizes = sizeModels;
+      Toppings = toppingModels;
+
+      //SelectedToppings2 = new List<CheckBoxTopping>(){ new CheckBoxTopping(){ Name = "Pepperoni", Text = "NotChecked", IsSelected = false }};
     }
   }
 

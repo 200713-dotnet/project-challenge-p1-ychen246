@@ -6,10 +6,6 @@ namespace PizzaBox.Domain.Models
 	{
 		public List<PizzaModel> Pizzas { get; set;}
 
-		//public UserModel user { get; set;} 
-		//public StoreModel store { get; set;}
-		//Might need.
-
 		public decimal OrderPrice 
 		{
 			get 
