@@ -34,7 +34,7 @@ namespace PizzaBox.Storing.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CrustModel");
+                    b.ToTable("Crusts");
                 });
 
             modelBuilder.Entity("PizzaBox.Domain.Models.OrderModel", b =>
@@ -113,7 +113,7 @@ namespace PizzaBox.Storing.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SizeModel");
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("PizzaBox.Domain.Models.StoreModel", b =>
@@ -151,7 +151,7 @@ namespace PizzaBox.Storing.Migrations
 
                     b.HasIndex("PizzaModelId");
 
-                    b.ToTable("ToppingModel");
+                    b.ToTable("Toppings");
                 });
 
             modelBuilder.Entity("PizzaBox.Domain.Models.UserModel", b =>

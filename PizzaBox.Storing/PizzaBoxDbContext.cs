@@ -6,11 +6,11 @@ namespace PizzaBox.Storing
   public class PizzaBoxDbContext : DbContext
   {
     public DbSet<PizzaModel> Pizzas { get; set; } //create table
-
+    public DbSet<CrustModel> Crusts { get; set; }
+    public DbSet<SizeModel> Sizes { get; set; }
+    public DbSet<ToppingModel> Toppings { get; set; }
     public DbSet<OrderModel> Orders { get; set; }
-
     public DbSet<UserModel> Users { get; set; }
-
      public DbSet<StoreModel> Stores { get; set; }
 
     public PizzaBoxDbContext(DbContextOptions options) : base(options){} //dependency injection

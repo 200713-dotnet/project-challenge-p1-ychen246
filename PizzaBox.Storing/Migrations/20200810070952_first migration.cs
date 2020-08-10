@@ -7,7 +7,7 @@ namespace PizzaBox.Storing.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CrustModel",
+                name: "Crusts",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,11 +17,11 @@ namespace PizzaBox.Storing.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CrustModel", x => x.Id);
+                    table.PrimaryKey("PK_Crusts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SizeModel",
+                name: "Sizes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -31,7 +31,7 @@ namespace PizzaBox.Storing.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SizeModel", x => x.Id);
+                    table.PrimaryKey("PK_Sizes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -104,9 +104,9 @@ namespace PizzaBox.Storing.Migrations
                 {
                     table.PrimaryKey("PK_Pizzas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Pizzas_CrustModel_CrustId",
+                        name: "FK_Pizzas_Crusts_CrustId",
                         column: x => x.CrustId,
-                        principalTable: "CrustModel",
+                        principalTable: "Crusts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -116,15 +116,15 @@ namespace PizzaBox.Storing.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Pizzas_SizeModel_SizeId",
+                        name: "FK_Pizzas_Sizes_SizeId",
                         column: x => x.SizeId,
-                        principalTable: "SizeModel",
+                        principalTable: "Sizes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ToppingModel",
+                name: "Toppings",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -135,9 +135,9 @@ namespace PizzaBox.Storing.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ToppingModel", x => x.Id);
+                    table.PrimaryKey("PK_Toppings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ToppingModel_Pizzas_PizzaModelId",
+                        name: "FK_Toppings_Pizzas_PizzaModelId",
                         column: x => x.PizzaModelId,
                         principalTable: "Pizzas",
                         principalColumn: "Id",
@@ -170,27 +170,27 @@ namespace PizzaBox.Storing.Migrations
                 column: "SizeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ToppingModel_PizzaModelId",
-                table: "ToppingModel",
+                name: "IX_Toppings_PizzaModelId",
+                table: "Toppings",
                 column: "PizzaModelId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ToppingModel");
+                name: "Toppings");
 
             migrationBuilder.DropTable(
                 name: "Pizzas");
 
             migrationBuilder.DropTable(
-                name: "CrustModel");
+                name: "Crusts");
 
             migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "SizeModel");
+                name: "Sizes");
 
             migrationBuilder.DropTable(
                 name: "Stores");
