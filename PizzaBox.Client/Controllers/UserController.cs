@@ -44,16 +44,44 @@ namespace PizzaBox.Client.Controllers
       return View("ShowOrder", orderViewModel);
     }
 
+    public IActionResult CheckOut(OrderViewModel orderViewModel)
+    {
+      var stores =_db.Stores.ToList();
+      orderViewModel.LoadStores(stores);
+      return View("CheckOut", orderViewModel);
+    }
+
     public IActionResult SubmitOrder(OrderViewModel orderViewModel)
     {
       var store = _db.Stores.FirstOrDefault( s => s.Name == orderViewModel.Store);
       var user = _db.Users.FirstOrDefault ( u => u.Name == orderViewModel.User);
       var order = new OrderModel();
-      order.Pizzas = orderViewModel.Pizzas;
-
+      //order.Pizzas = orderViewModel.Pizzas; Could not get viewmodeldata to persist between view.
+      var crust = _db.Crusts.FirstOrDefault( c => c.Name == "Regular");
+      var size =_db.Sizes.FirstOrDefault( s => s.Name == "Medium");
+      List<ToppingModel> toppings = new List<ToppingModel>();
+      List<string> toppinglist = new List<string>();
+      toppinglist.Add("Sausage");
+      toppinglist.Add("Mushroom");
+      foreach (var topping in toppinglist)
+      {
+        var top =_db.Toppings.FirstOrDefault( t => t.Name == topping);
+        toppings.Add(top);
+      }
+      List<PizzaModel> PizzaOrder = new List<PizzaModel>();
+      PizzaFactory pf = new PizzaFactory();
+      for (int i = 0; i < 3; i++)
+      {
+       var pizza = pf.Create() as PizzaModel;
+       var newPizza = pf.Update(pizza, crust, size, toppings) as PizzaModel;
+       newPizza.Name = "Template Pizza";
+       PizzaOrder.Add(newPizza);
+      }
+      order.Pizzas = PizzaOrder;
+      //Temp solution for demo purpose
       OrderRepository or = new OrderRepository(_db);
       or.UserOrder(store, user, order);
-      return View("ShowOrder");
+      return Redirect("/user/start");
     }
   }
 }

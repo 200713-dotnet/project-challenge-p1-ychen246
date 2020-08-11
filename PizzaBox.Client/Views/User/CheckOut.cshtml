@@ -1,4 +1,5 @@
 @model PizzaBox.Client.Models.OrderViewModel
+
 <section>
     <h2>Pizza List</h2>
     <ul>
@@ -25,7 +26,7 @@
 			<select asp-for="@Model.Store">
 				@foreach (var store in @Model.Stores)
 				{
-				<option value="@store.Name">@store.Name</option>
+					<option value="@store.Name">@store.Name</option>
 				}
 			</select>
 		<section>

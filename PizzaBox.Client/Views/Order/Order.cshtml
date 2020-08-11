@@ -16,7 +16,7 @@
   @foreach (var topping in @Model.Toppings)
   {
     <input type="checkbox" name="selectedtoppings" id="selectedtoppings" value="@topping.Name">
-    <label for="selectedtoppings">@topping.Name</label>
+    <label>@topping.Name</label>
   }
 
   <section><button type="submit">Place Order</button></section>

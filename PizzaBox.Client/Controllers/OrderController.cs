@@ -25,12 +25,5 @@ namespace PizzaBox.Client.Controllers
       ViewBag.Topping = _db.Toppings.ToList();
       return View("Order", new PizzaViewModel(ViewBag.Crust, ViewBag.Size, ViewBag.Topping));
     }
-
-    public IActionResult Complete(OrderViewModel orderViewModel)
-    {
-      var stores =_db.Stores.ToList();
-      orderViewModel.LoadStores(stores);
-      return View("OrderComplete", orderViewModel);
-    }
   }
 }
