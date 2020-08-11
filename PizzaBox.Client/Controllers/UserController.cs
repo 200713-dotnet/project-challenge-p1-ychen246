@@ -42,5 +42,11 @@ namespace PizzaBox.Client.Controllers
 
       return View("ShowOrder", orderViewModel);
     }
+
+    public IActionResult SubmitOrder(OrderViewModel orderViewModel)
+    {
+      
+      return View("ShowOrder", orderViewModel);
+    }
   }
 }

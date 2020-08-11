@@ -10,8 +10,12 @@ namespace PizzaBox.Client.Models
     // out to the client
     public List<PizzaModel> Pizzas { get; set; }
 
-    // in from the client
+    public List<StoreModel> Stores { get; set;}
 
+    // in from the client
+    public string User {get; set;}
+
+    public string Store{get; set;}
     
     public OrderViewModel()
     {
@@ -21,6 +25,11 @@ namespace PizzaBox.Client.Models
     public void AddPizza(PizzaModel pizza)
     {
       Pizzas.Add(pizza);
+    }
+
+    public void LoadStores(List<StoreModel> stores)
+    {
+      Stores = stores;
     }
   }
 }
