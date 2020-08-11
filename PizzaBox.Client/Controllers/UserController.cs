@@ -6,6 +6,7 @@ using PizzaBox.Client.Models;
 using PizzaBox.Domain.Factories;
 using PizzaBox.Domain.Models;
 using PizzaBox.Storing;
+using PizzaBox.Storing.Repositories;
 
 namespace PizzaBox.Client.Controllers
 {
@@ -45,8 +46,14 @@ namespace PizzaBox.Client.Controllers
 
     public IActionResult SubmitOrder(OrderViewModel orderViewModel)
     {
-      
-      return View("ShowOrder", orderViewModel);
+      var store = _db.Stores.FirstOrDefault( s => s.Name == orderViewModel.Store);
+      var user = _db.Users.FirstOrDefault ( u => u.Name == orderViewModel.User);
+      var order = new OrderModel();
+      order.Pizzas = orderViewModel.Pizzas;
+
+      OrderRepository or = new OrderRepository(_db);
+      or.UserOrder(store, user, order);
+      return View("ShowOrder");
     }
   }
 }
