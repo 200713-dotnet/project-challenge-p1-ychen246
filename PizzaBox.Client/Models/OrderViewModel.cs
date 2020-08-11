@@ -15,10 +15,10 @@ namespace PizzaBox.Client.Models
     
     public OrderViewModel()
     {
-      
+      Pizzas = new List<PizzaModel>();
     }
 
-    public OrderViewModel(PizzaModel pizza)
+    public void AddPizza(PizzaModel pizza)
     {
       Pizzas.Add(pizza);
     }

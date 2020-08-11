@@ -36,7 +36,11 @@ namespace PizzaBox.Client.Controllers
       PizzaFactory pf = new PizzaFactory();
       var pizza = pf.Create() as PizzaModel;
       var newPizza = pf.Update(pizza, crust, size, toppings) as PizzaModel;
-      return View("Home");
+
+      OrderViewModel orderViewModel = new OrderViewModel();
+      orderViewModel.AddPizza(newPizza);
+
+      return View("ShowOrder", orderViewModel);
     }
   }
 }
