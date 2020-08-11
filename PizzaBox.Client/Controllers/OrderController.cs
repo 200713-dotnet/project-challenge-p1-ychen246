@@ -25,5 +25,21 @@ namespace PizzaBox.Client.Controllers
       ViewBag.Topping = _db.Toppings.ToList();
       return View("Order", new PizzaViewModel(ViewBag.Crust, ViewBag.Size, ViewBag.Topping));
     }
+
+    public IActionResult History()
+    {
+      return View("OrderHistory", new OrderViewModel());
+    }
+
+    public IActionResult ViewOrder(OrderViewModel orderViewModel)
+    {
+      if(orderViewModel.User != null)
+      {
+        var user = _db.Users.FirstOrDefault( u => u.Name == orderViewModel.User);
+        //var order = _db.Orders.ToList();
+         //ViewBag.Order = user;
+      }
+      return View("ViewHistory");
+    }
   }
 }

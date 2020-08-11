@@ -1,0 +1,9 @@
+@model PizzaBox.Client.Models.OrderViewModel
+
+<form asp-controller="order" asp-action="vieworder" method="post">
+		<section>
+			<input type="text" name="user" id="user" value="@Model.User">
+		</section>
+			<button type="submit">View Order</button>
+		</section>
+</form>
